@@ -10,7 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.assignment2.Classes.User;
 import com.example.assignment2.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,6 +22,47 @@ import com.example.assignment2.R;
  * create an instance of this fragment.
  */
 public class Login extends Fragment {
+
+    List<User> userList = new ArrayList<>();
+
+
+    private boolean isUsernameTaken(String username) {
+
+        for (User user : userList) {
+            if (user.getUsername().equals(username)) {
+                return true;  // Username is already taken
+            }
+        }
+        return false;  // Username is available
+
+    }
+
+
+    public boolean registerUser(String username, String password) {
+
+        // Check if the username is already taken
+        if (isUsernameTaken(username)) {
+            return false;  // Username is already taken, registration failed
+        }
+
+        // Register the user
+        User newUser = new User(username, password);
+        userList.add(newUser);
+        return true;  // Registration successful
+
+    }
+
+
+    public boolean isValidate(String username, String password) {
+
+        for (User user : userList) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                return true;  // Authentication successful
+            }
+        }
+        return false;  // Invalid username or password
+
+    }
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
