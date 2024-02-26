@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/padd"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.MyAreaFragment">
@@ -24,6 +25,25 @@
         android:layout_marginRight="30dp"
         android:orientation="vertical">
 
+
+        <TextView
+            android:id="@+id/hello_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_background"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="שלום!"
+            android:textColor="#655858"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/items"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="30dp" />
 
         <Button
             android:id="@+id/continueBtn"
