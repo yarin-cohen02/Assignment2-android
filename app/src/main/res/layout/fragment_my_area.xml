@@ -43,13 +43,9 @@
             android:id="@+id/items"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="30dp" />
+            android:layout_marginBottom="30dp"
+            tools:spanCount="5" />
 
-        <Button
-            android:id="@+id/continueBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
     </LinearLayout>
 
 </FrameLayout>

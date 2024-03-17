@@ -19,8 +19,15 @@
         android:text="Item Name" />
 
     <TextView
-        android:id="@+id/textViewQuantity"
+        android:id="@+id/textViewPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quantity" />
+        android:text="Price"/>
+
+    <Button
+        android:id="@+id/selectQuantityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Quantity" />
+
 </LinearLayout>

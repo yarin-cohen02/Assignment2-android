@@ -31,9 +31,12 @@ public class Login extends Fragment {
 
     List<User> userList = new ArrayList<>();
     List<Item> menu = new ArrayList<Item>() {{
-        add(new Item("שולחן צבעוני", 3));
-        add(new Item("כיסא בר", 2));
-        add(new Item("כורסא דגם עור", 1));
+        add(new Item("שולחן צבעוני", 579));
+        add(new Item("כיסא בר", 129));
+        add(new Item("שולחן בר דגם חדש", 429));
+        add(new Item("סט כריות כחול", 199));
+        add(new Item("סט מצעים כחול", 199));
+        add(new Item("כורסא דגם עור", 299));
     }};
 
     private boolean isUsernameTaken(String username) {
