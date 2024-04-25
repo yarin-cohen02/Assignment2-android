@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "764815140265",
+    "project_id": "soundon-441fd",
+    "storage_bucket": "soundon-441fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764815140265:android:014669b5abcf139820d0b8",
+        "android_client_info": {
+          "package_name": "com.example.assignment2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5_9s7tKwP0QYMIkqky1WvDsridXibYWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.assignment2.Activities.MainActivity;
 import com.example.assignment2.Classes.Item;
 import com.example.assignment2.Classes.User;
 import com.example.assignment2.R;
@@ -139,20 +140,24 @@ public class Login extends Fragment {
                 // Log the username
                 Log.d("ACCOUNT", "Username: " + username);
 
-                if (isValidate(username, password)) {
+                MainActivity mainActivity = (MainActivity) getActivity();
+                assert mainActivity != null;
+                mainActivity.loginFunc(username, password);
 
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("userList", (Serializable) userList);
-                    bundle.putString("username", username);
-                    bundle.putSerializable("menu", (Serializable) menu);
-
-                    // Navigate to myArea if the credentials are correct
-                    Navigation.findNavController(view).navigate(R.id.action_login_to_myArea, bundle);
-
-                } else {
-                    // Show a message or handle the case when credentials are incorrect
-                    Toast.makeText(getContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
-                }
+//                if (isValidate(username, password)) {
+//
+//                    Bundle bundle = new Bundle();
+//                    bundle.putSerializable("userList", (Serializable) userList);
+//                    bundle.putString("username", username);
+//                    bundle.putSerializable("menu", (Serializable) menu);
+//
+//                    // Navigate to myArea if the credentials are correct
+//                    Navigation.findNavController(view).navigate(R.id.action_login_to_myArea, bundle);
+//
+//                } else {
+//                    // Show a message or handle the case when credentials are incorrect
+//                    Toast.makeText(getContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
+//                }
 
             }
         });
