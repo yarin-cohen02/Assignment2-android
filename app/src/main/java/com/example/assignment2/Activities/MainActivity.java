@@ -10,6 +10,8 @@ import static java.security.AccessController.getContext;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +24,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -33,6 +38,19 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+
+        RecyclerView recyclerView = findViewById(R.id.myRecycler);
+
+        ArrayList<DjModel> djs = new ArrayList<>(Arrays.asList(
+
+                new DjModel("בן אזולאי","פופ","DramaTLV","Avicii - The Nights",R.drawable.images),
+                new DjModel("סקאזי","רוק","BlueMoon","Amnezia - ABCD",R.drawable.images),
+                new DjModel("איתי גאלו","פופ","PortTLV","נועה קירל - שלושה בנות",R.drawable.images)
+        ));
+
+        AA_RecyclerViewAdapter adapter = new AA_RecyclerViewAdapter(this, djs);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 

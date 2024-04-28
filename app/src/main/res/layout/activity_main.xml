@@ -7,6 +7,13 @@
     android:orientation="vertical"
     tools:context=".Activities.MainActivity" >
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -14,4 +21,5 @@
         android:layout_height="match_parent"
         app:defaultNavHost="true"
         app:navGraph="@navigation/navgraph" />
+
 </LinearLayout>
