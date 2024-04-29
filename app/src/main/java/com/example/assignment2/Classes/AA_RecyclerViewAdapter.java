@@ -16,8 +16,17 @@ import java.util.ArrayList;
 
 public class AA_RecyclerViewAdapter extends RecyclerView.Adapter<AA_RecyclerViewAdapter.MyViewHolder> {
 
-    Context context;
-    ArrayList<DjModel> djModels;
+    private Context context;
+    private ArrayList<DjModel> djModels;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(DjModel selectedItem);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
 
     public AA_RecyclerViewAdapter(Context context, ArrayList<DjModel> djModels) {
         this.context = context;
@@ -26,21 +35,28 @@ public class AA_RecyclerViewAdapter extends RecyclerView.Adapter<AA_RecyclerView
 
     @NonNull
     @Override
-    public AA_RecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recycler_row, parent, false);
-        return new AA_RecyclerViewAdapter.MyViewHolder(view);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AA_RecyclerViewAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onItemClick(djModels.get(position));
+                }
+            }
+        });
 
+        // Bind other data to views
         holder.tvName.setText(djModels.get(position).getDjName());
         holder.tvClub.setText(djModels.get(position).getDjClub());
         holder.tvNowPlaying.setText(djModels.get(position).getNowPlaying());
-//        holder.imageView.setImageResource(djModels.get(position).getDjImg());
-
+        holder.imageView.setImageResource(djModels.get(position).getDjImg());
     }
 
     @Override
@@ -60,7 +76,6 @@ public class AA_RecyclerViewAdapter extends RecyclerView.Adapter<AA_RecyclerView
             tvName = itemView.findViewById(R.id.heading_ad);
             tvClub = itemView.findViewById(R.id.desc_ad);
             tvNowPlaying = itemView.findViewById(R.id.nowPlaying);
-
         }
     }
 }

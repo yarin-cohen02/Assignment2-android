@@ -175,6 +175,23 @@ public class Login extends Fragment {
             }
         });
 
+        //skip button - for develop only:
+
+        // Skip Button
+        view.findViewById(R.id.skipBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to innerAppActivity
+                MainActivity mainActivity = (MainActivity) getActivity();
+                if (mainActivity != null) {
+                    mainActivity.goToInnerAppActivity();
+                } else {
+                    Log.e("LoginFragment", "Unable to get MainActivity instance");
+                }
+            }
+        });
+
+
         return view;
     }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="חשבון"
+        android:id="@+id/accountItem"
+        android:icon="@drawable/baseline_account_circle_24"/>
+    <item android:title="מועדונים"
+        android:id="@+id/clubsItem"
+        android:icon="@drawable/baseline_album_24"/>
+    <item android:title="בית"
+        android:id="@+id/homeItem"
+        android:icon="@drawable/baseline_home_24"/>
+</menu>

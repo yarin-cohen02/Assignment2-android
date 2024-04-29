@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -35,19 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-
-//        RecyclerView recyclerView = findViewById(R.id.myRecycler);
-//
-//        ArrayList<DjModel> djs = new ArrayList<>(Arrays.asList(
-//
-//                new DjModel("בן אזולאי","פופ","DramaTLV","Avicii - The Nights",R.drawable.images),
-//                new DjModel("סקאזי","רוק","BlueMoon","Amnezia - ABCD",R.drawable.images),
-//                new DjModel("איתי גאלו","פופ","PortTLV","נועה קירל - שלושה בנות",R.drawable.images)
-//        ));
-//
-//        AA_RecyclerViewAdapter adapter = new AA_RecyclerViewAdapter(this, djs);
-//        recyclerView.setAdapter(adapter);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 
@@ -85,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    // Method to navigate to innerAppActivity
+    public void goToInnerAppActivity() {
+        Intent intent = new Intent(MainActivity.this, innerAppActivity.class);
+        startActivity(intent);
     }
 
     public void signOut() {
