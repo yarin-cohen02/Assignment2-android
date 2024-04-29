@@ -1,4 +1,4 @@
-package com.example.assignment2.Activities;
+package com.example.assignment2.Classes;
 
 public class DjModel {
 

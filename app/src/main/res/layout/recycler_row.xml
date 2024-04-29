@@ -8,11 +8,11 @@
     <androidx.cardview.widget.CardView
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
         app:cardBackgroundColor="#DDA8A8"
-        app:cardCornerRadius="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:cardCornerRadius="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,9 +23,10 @@
             android:layout_height="100dp">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imageView"
                 android:layout_width="153dp"
                 android:layout_height="94dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/images"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -36,34 +37,54 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="12dp"
-                android:layout_marginBottom="60dp"
+                android:layout_marginBottom="67dp"
                 android:fontFamily="sans-serif"
                 android:text="ישראל ישראלי"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 app:guidelineUseRtl="true"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView3" />
+                app:layout_constraintEnd_toStartOf="@+id/imageView" />
 
             <TextView
                 android:id="@+id/clubName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="28dp"
-                android:layout_marginBottom="28dp"
+                android:layout_marginEnd="44dp"
+                android:layout_marginBottom="42dp"
                 android:text="DramaTLV"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView3" />
+                app:layout_constraintEnd_toStartOf="@+id/imageView" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:srcCompat="@drawable/baseline_location_on_24" />
 
             <TextView
                 android:id="@+id/nowPlaying"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="28dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="44dp"
+                android:layout_marginBottom="18dp"
                 android:text="Avicii - The Nights"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView3" />
+                app:layout_constraintEnd_toStartOf="@+id/imageView" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:srcCompat="@drawable/baseline_album_24" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

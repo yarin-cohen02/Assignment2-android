@@ -3,16 +3,21 @@ package com.example.assignment2.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.assignment2.Classes.AA_RecyclerViewAdapter;
+import com.example.assignment2.Classes.DjModel;
 import com.example.assignment2.R;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Home extends Fragment {
-
-
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,7 +62,19 @@ public class Home extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        RecyclerView recyclerView = rootView.findViewById(R.id.mRecycler);
+
+        ArrayList<DjModel> djs = new ArrayList<>(Arrays.asList(
+                new DjModel("בן אזולאי","פופ","DramaTLV","Avicii - The Nights",R.drawable.images),
+                new DjModel("סקאזי","רוק","BlueMoon","Amnezia - ABCD",R.drawable.images),
+                new DjModel("איתי גאלו","פופ","PortTLV","נועה קירל - שלושה בנות",R.drawable.images)
+        ));
+
+        AA_RecyclerViewAdapter adapter = new AA_RecyclerViewAdapter(getActivity(), djs);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        return rootView;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.assignment2.Activities;
+package com.example.assignment2.Classes;
 
 import android.content.Context;
 import android.view.LayoutInflater;

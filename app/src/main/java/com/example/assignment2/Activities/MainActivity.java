@@ -1,21 +1,18 @@
 package com.example.assignment2.Activities;
 
 import static android.content.ContentValues.TAG;
-import com.example.assignment2.Fragments.Welcome;
 
+import com.example.assignment2.Classes.AA_RecyclerViewAdapter;
+import com.example.assignment2.Classes.DjModel;
 
-
-import static java.security.AccessController.getContext;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.assignment2.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,18 +36,18 @@ public class MainActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        RecyclerView recyclerView = findViewById(R.id.myRecycler);
-
-        ArrayList<DjModel> djs = new ArrayList<>(Arrays.asList(
-
-                new DjModel("בן אזולאי","פופ","DramaTLV","Avicii - The Nights",R.drawable.images),
-                new DjModel("סקאזי","רוק","BlueMoon","Amnezia - ABCD",R.drawable.images),
-                new DjModel("איתי גאלו","פופ","PortTLV","נועה קירל - שלושה בנות",R.drawable.images)
-        ));
-
-        AA_RecyclerViewAdapter adapter = new AA_RecyclerViewAdapter(this, djs);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        RecyclerView recyclerView = findViewById(R.id.myRecycler);
+//
+//        ArrayList<DjModel> djs = new ArrayList<>(Arrays.asList(
+//
+//                new DjModel("בן אזולאי","פופ","DramaTLV","Avicii - The Nights",R.drawable.images),
+//                new DjModel("סקאזי","רוק","BlueMoon","Amnezia - ABCD",R.drawable.images),
+//                new DjModel("איתי גאלו","פופ","PortTLV","נועה קירל - שלושה בנות",R.drawable.images)
+//        ));
+//
+//        AA_RecyclerViewAdapter adapter = new AA_RecyclerViewAdapter(this, djs);
+//        recyclerView.setAdapter(adapter);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 
