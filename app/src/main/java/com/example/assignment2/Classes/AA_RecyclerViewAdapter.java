@@ -57,8 +57,8 @@ public class AA_RecyclerViewAdapter extends RecyclerView.Adapter<AA_RecyclerView
             super(itemView);
 
             imageView = itemView.findViewById(R.id.imageView);
-            tvName = itemView.findViewById(R.id.djName);
-            tvClub = itemView.findViewById(R.id.clubName);
+            tvName = itemView.findViewById(R.id.heading_ad);
+            tvClub = itemView.findViewById(R.id.desc_ad);
             tvNowPlaying = itemView.findViewById(R.id.nowPlaying);
 
         }

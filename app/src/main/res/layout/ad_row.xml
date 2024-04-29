@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        app:cardBackgroundColor="#DDA8A8"
+        app:cardBackgroundColor="#846262"
         app:cardCornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +40,7 @@
                 android:layout_marginBottom="67dp"
                 android:fontFamily="sans-serif"
                 android:text="ישראל ישראלי"
+                android:textColor="@color/white"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 app:guidelineUseRtl="true"
@@ -48,43 +49,26 @@
 
             <TextView
                 android:id="@+id/desc_ad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="44dp"
-                android:layout_marginBottom="42dp"
-                android:text="DramaTLV"
+                android:layout_width="177dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="4dp"
+                android:text="די ג׳יי איתי גאלו עושה חיל בתחום המוסיקה - הוא ניגן בחתונות של הכוכבים הכי גדולים במדינה, חתום על להיטים כמו"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageView" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView"
-                app:srcCompat="@drawable/baseline_location_on_24" />
 
             <TextView
-                android:id="@+id/nowPlaying"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="44dp"
-                android:layout_marginBottom="18dp"
-                android:text="Avicii - The Nights"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView" />
+                android:id="@+id/memuman"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:background="#846262"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="ממומן"
+                android:textColor="@color/white"
+                tools:layout_editor_absoluteX="321dp"
+                tools:layout_editor_absoluteY="70dp" />
 
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView"
-                app:srcCompat="@drawable/baseline_album_24" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

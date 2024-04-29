@@ -68,8 +68,14 @@ public class Home extends Fragment {
         ArrayList<DjModel> djs = new ArrayList<>(Arrays.asList(
                 new DjModel("בן אזולאי","פופ","DramaTLV","Avicii - The Nights",R.drawable.images),
                 new DjModel("סקאזי","רוק","BlueMoon","Amnezia - ABCD",R.drawable.images),
+                new DjModel("איתי גאלו","פופ","PortTLV","נועה קירל - שלושה בנות",R.drawable.images),
+                new DjModel("בן אזולאי","פופ","DramaTLV","Avicii - The Nights",R.drawable.images),
+                new DjModel("סקאזי","רוק","BlueMoon","Amnezia - ABCD",R.drawable.images),
+                new DjModel("איתי גאלו","פופ","PortTLV","נועה קירל - שלושה בנות",R.drawable.images),
+                new DjModel("בן אזולאי","פופ","DramaTLV","Avicii - The Nights",R.drawable.images),
+                new DjModel("סקאזי","רוק","BlueMoon","Amnezia - ABCD",R.drawable.images),
                 new DjModel("איתי גאלו","פופ","PortTLV","נועה קירל - שלושה בנות",R.drawable.images)
-        ));
+                ));
 
         AA_RecyclerViewAdapter adapter = new AA_RecyclerViewAdapter(getActivity(), djs);
         recyclerView.setAdapter(adapter);
