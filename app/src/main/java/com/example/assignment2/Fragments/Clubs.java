@@ -43,13 +43,13 @@ public class Clubs extends Fragment implements AA_RecyclerViewAdapter.OnItemClic
         mRecyclerView = rootView.findViewById(R.id.mRecycler);
 
         ArrayList<DjModel> djs = new ArrayList<>(Arrays.asList(
-                new DjModel("DramaTLV","פופ","DramaTLV","Avicii - The Nights",R.drawable.club1),
-                new DjModel("Port Said","רוק","BlueMoon","Amnezia - ABCD",R.drawable.club2),
-                new DjModel("שלוותא","פופ","PortTLV","נועה קירל - שלושה בנות",R.drawable.club3),
-                new DjModel("האומן 17","פופ","DramaTLV","Avicii - The Nights",R.drawable.club4),
-                new DjModel("BlueMoon","רוק","BlueMoon","Amnezia - ABCD",R.drawable.club5),
-                new DjModel("Bee","פופ","PortTLV","נועה קירל - שלושה בנות",R.drawable.club6),
-                new DjModel("Forum B.SH.","פופ","DramaTLV","Avicii - The Nights",R.drawable.club7)
+                new DjModel("DramaTLV","פופ","משה כהן","Avicii - The Nights",R.drawable.club1),
+                new DjModel("BlueMoon","רוק","סקאזי","Amnezia - ABCD",R.drawable.club2),
+                new DjModel("שלוותא","פופ","אלון מתנה","נועה קירל - שלושה בנות",R.drawable.club3),
+                new DjModel("האומן 17","פופ","בן אזולאי","Avicii - The Nights",R.drawable.club4),
+                new DjModel("BlueMoon","רוק","רון לוי","Amnezia - ABCD",R.drawable.club5),
+                new DjModel("Bee","פופ","אלון בן דוד","נועה קירל - שלושה בנות",R.drawable.club6),
+                new DjModel("Forum B.SH.","פופ","דנה אשכנזי","Avicii - The Nights",R.drawable.club7)
         ));
 
         AA_RecyclerViewAdapter adapter = new AA_RecyclerViewAdapter(getActivity(), djs);
