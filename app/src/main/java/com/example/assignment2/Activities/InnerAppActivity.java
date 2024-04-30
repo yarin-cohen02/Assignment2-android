@@ -1,6 +1,7 @@
 package com.example.assignment2.Activities;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -12,13 +13,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.assignment2.Fragments.ExplainScreen;
+import com.example.assignment2.Fragments.AccountFragment;
 import com.example.assignment2.Fragments.Home;
 import com.example.assignment2.Fragments.Login;
+import com.example.assignment2.Fragments.Clubs;
+import com.example.assignment2.Fragments.SongRequestDialogFragment;
 import com.example.assignment2.R;
 import com.example.assignment2.databinding.ActivityInnerAppBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class innerAppActivity extends AppCompatActivity {
+public class InnerAppActivity extends AppCompatActivity {
 
     ActivityInnerAppBinding binding;
 
@@ -35,6 +39,9 @@ public class innerAppActivity extends AppCompatActivity {
             return insets;
         });
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.homeItem);
+
         replaceFragment(new Home());
 
         // Set listeners of tapping the navBar items:
@@ -45,9 +52,9 @@ public class innerAppActivity extends AppCompatActivity {
             if (itemId == R.id.homeItem) {
                 replaceFragment(new Home());
             } else if (itemId == R.id.clubsItem) {
-                replaceFragment(new ExplainScreen());
+                replaceFragment(new Clubs());
             } else if (itemId == R.id.accountItem) {
-                replaceFragment(new Login());
+                replaceFragment(new AccountFragment());
             }
 
             return true;
@@ -56,12 +63,34 @@ public class innerAppActivity extends AppCompatActivity {
 
     }
 
-    private void replaceFragment(Fragment fragment) {
+    public void replaceFragment(Fragment fragment) {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
 
+    }
+
+    public void selectHome() {
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.homeItem);
+
+    }
+
+    public void goToMainActivity() {
+        Intent intent = new Intent(InnerAppActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void showSongRequestDialog(String name, String clubName) {
+        // Check if the activity is attached to a context
+        if (this == null) {
+            return;
+        }
+
+        // Show the dialog using the activity's context
+        SongRequestDialogFragment.showDialog(this, name, clubName);
     }
 }

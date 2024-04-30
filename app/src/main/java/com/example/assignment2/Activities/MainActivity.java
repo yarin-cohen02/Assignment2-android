@@ -2,18 +2,14 @@ package com.example.assignment2.Activities;
 
 import static android.content.ContentValues.TAG;
 
-import com.example.assignment2.Classes.AA_RecyclerViewAdapter;
-import com.example.assignment2.Classes.DjModel;
-
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.assignment2.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,20 +18,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
     }
 
 
@@ -47,10 +37,14 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            goToInnerAppActivity();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(MainActivity.this, "הרשמה נכשלה",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -67,9 +61,12 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            goToInnerAppActivity();
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.d(TAG, "signInWithEmail:FAIL");
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(MainActivity.this, "שם משתמש או סיסמה שגויים",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -77,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Method to navigate to innerAppActivity
     public void goToInnerAppActivity() {
-        Intent intent = new Intent(MainActivity.this, innerAppActivity.class);
+        Intent intent = new Intent(MainActivity.this, InnerAppActivity.class);
         startActivity(intent);
     }
 

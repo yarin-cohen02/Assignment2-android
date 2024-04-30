@@ -1,17 +1,18 @@
 package com.example.assignment2.Fragments;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.assignment2.Activities.InnerAppActivity;
 import com.example.assignment2.Classes.DjModel;
 import com.example.assignment2.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ExplainScreen extends Fragment {
 
@@ -66,7 +67,46 @@ public class ExplainScreen extends Fragment {
             currentSongTextView.setText(selectedDj.getNowPlaying());
         }
 
+        // Find suggestButton by its ID
+        Button suggestButton = rootView.findViewById(R.id.suggestButton);
+        suggestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the text values from TextViews
+                String name = nameTextView.getText().toString();
+                String clubName = clubNameTextView.getText().toString();
+
+                // Open the dialog
+                openSongRequestDialog(name, clubName);
+            }
+        });
+
+        // Find exitBtn ImageView by its ID
+        ImageView exitBtnImageView = rootView.findViewById(R.id.exitBtn);
+        exitBtnImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to Home fragment
+                InnerAppActivity innerAppActivity = (InnerAppActivity) getActivity();
+                if (innerAppActivity != null) {
+                    innerAppActivity.replaceFragment(new Home());
+                    innerAppActivity.selectHome();
+                }
+            }
+        });
+
         return rootView;
     }
 
+    // Method to open the song request dialog
+    private void openSongRequestDialog(String name, String clubName) {
+        // Get the hosting Activity's context
+        InnerAppActivity activity = (InnerAppActivity) getActivity();
+
+        // Check if the activity is available
+        if (activity != null) {
+            // Call the method in the activity to show the dialog
+            activity.showSongRequestDialog(name, clubName);
+        }
+    }
 }

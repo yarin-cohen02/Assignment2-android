@@ -9,18 +9,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.assignment2.Activities.MainActivity;
 import com.example.assignment2.Classes.Item;
-import com.example.assignment2.Classes.User;
 import com.example.assignment2.R;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import android.widget.EditText;
-import android.widget.Toast;
 
 
 /**
@@ -29,53 +26,6 @@ import android.widget.Toast;
  * create an instance of this fragment.
  */
 public class Login extends Fragment {
-
-    List<User> userList = new ArrayList<>();
-    List<Item> menu = new ArrayList<Item>() {{
-        add(new Item("שולחן צבעוני", 579));
-        add(new Item("כיסא בר", 129));
-        add(new Item("שולחן בר דגם חדש", 429));
-        add(new Item("סט כריות כחול", 199));
-        add(new Item("סט מצעים כחול", 199));
-        add(new Item("כורסא דגם עור", 299));
-    }};
-
-    private boolean isUsernameTaken(String username) {
-
-        for (User user : userList) {
-            if (user.getUsername().equals(username)) {
-                return true;  // Username is already taken
-            }
-        }
-        return false;  // Username is available
-
-    }
-
-
-    public boolean registerUser(String username, String password) {
-
-        // Check if the username is already taken
-        if (isUsernameTaken(username)) {
-            return false;  // Username is already taken, registration failed
-        }
-
-        // Register the user
-        User newUser = new User(username, password);
-        userList.add(newUser);
-        return true;  // Registration successful
-
-    }
-
-    public boolean isValidate(String username, String password) {
-
-        for (User user : userList) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                return true;  // Authentication successful
-            }
-        }
-        return false;  // Invalid username or password
-
-    }
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -124,7 +74,6 @@ public class Login extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
-        registerUser("admin","admin");
 
         // Continue Button
         view.findViewById(R.id.continueBtn).setOnClickListener(new View.OnClickListener() {
@@ -167,29 +116,26 @@ public class Login extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("userList", (Serializable) userList);
-                bundle.putSerializable("menu", (Serializable) menu);
-                Navigation.findNavController(view).navigate(R.id.action_login_to_signup, bundle);
+                Navigation.findNavController(view).navigate(R.id.action_login_to_signup);
 
             }
         });
 
         //skip button - for develop only:
 
-        // Skip Button
-        view.findViewById(R.id.skipBtn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Navigate to innerAppActivity
-                MainActivity mainActivity = (MainActivity) getActivity();
-                if (mainActivity != null) {
-                    mainActivity.goToInnerAppActivity();
-                } else {
-                    Log.e("LoginFragment", "Unable to get MainActivity instance");
-                }
-            }
-        });
+//        // Skip Button
+//        view.findViewById(R.id.skipBtn).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Navigate to innerAppActivity
+//                MainActivity mainActivity = (MainActivity) getActivity();
+//                if (mainActivity != null) {
+//                    mainActivity.goToInnerAppActivity();
+//                } else {
+//                    Log.e("LoginFragment", "Unable to get MainActivity instance");
+//                }
+//            }
+//        });
 
 
         return view;
