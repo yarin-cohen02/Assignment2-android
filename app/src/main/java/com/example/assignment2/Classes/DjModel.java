@@ -72,4 +72,8 @@ public class DjModel implements Parcelable {
         dest.writeString(nowPlaying);
         dest.writeInt(djImg);
     }
+
+    public void setNowPlaying(String nowPlaying) {
+        this.nowPlaying = nowPlaying;
+    }
 }

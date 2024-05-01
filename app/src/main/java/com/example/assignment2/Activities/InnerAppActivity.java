@@ -3,8 +3,10 @@ package com.example.assignment2.Activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -21,6 +23,8 @@ import com.example.assignment2.Fragments.SongRequestDialogFragment;
 import com.example.assignment2.R;
 import com.example.assignment2.databinding.ActivityInnerAppBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+
 
 public class InnerAppActivity extends AppCompatActivity {
 
@@ -62,6 +66,9 @@ public class InnerAppActivity extends AppCompatActivity {
         });
 
     }
+
+
+
 
     public void replaceFragment(Fragment fragment) {
 

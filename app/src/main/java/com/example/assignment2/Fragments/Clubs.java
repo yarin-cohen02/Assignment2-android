@@ -1,5 +1,7 @@
 package com.example.assignment2.Fragments;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.assignment2.Classes.AA_RecyclerViewAdapter;
 import com.example.assignment2.Classes.DjModel;
+import com.example.assignment2.Classes.realTimeDb;
 import com.example.assignment2.R;
-
 import java.util.ArrayList;
 import java.util.Arrays;
+
+
 
 public class Clubs extends Fragment implements AA_RecyclerViewAdapter.OnItemClickListener {
 
@@ -59,6 +63,9 @@ public class Clubs extends Fragment implements AA_RecyclerViewAdapter.OnItemClic
         // Set click listener
         adapter.setOnItemClickListener(this);
 
+
+        realTimeDb.fetchRandomSongFromFirebase(djs, adapter);
+
         return rootView;
     }
 
@@ -76,4 +83,14 @@ public class Clubs extends Fragment implements AA_RecyclerViewAdapter.OnItemClic
                 .addToBackStack(null)
                 .commit();
     }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        realTimeDb.cancelAllTimers();
+    }
+
+
+
 }

@@ -68,6 +68,9 @@ public class AA_RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             normalViewHolder.imageView.setImageResource(currentItem.getDjImg());
         } else {
             // Handle ad item if needed
+            AdViewHolder adViewHolder = (AdViewHolder) holder;
+            realTimeDb.fetchCommercialsFromFirebase(adViewHolder);
+
         }
     }
 
@@ -98,11 +101,21 @@ public class AA_RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     public static class AdViewHolder extends RecyclerView.ViewHolder {
         // ViewHolder for ad item if needed
-
+        TextView tvTitle;
+        TextView tvDescription;
         public AdViewHolder(@NonNull View itemView) {
             super(itemView);
             // Initialize ad item views if needed
+            tvTitle = itemView.findViewById(R.id.heading_ad);
+            tvDescription = itemView.findViewById(R.id.desc_ad);
+
         }
+        public void bind(Commercial commercial) {
+            // Set data to views
+            tvTitle.setText(commercial.getTitle());
+            tvDescription.setText(commercial.getDescription());
+        }
+
     }
 
     private int getRealPosition(int position) {
